@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #131313;
+}
+
+header {
+  text-align: center;
+  padding-top: 20px;
+}
+
+header h1 {
+  color: #232323;
+  font-size: 5em;
+  font-style: italic;
+  text-transform: uppercase;
+  filter: drop-shadow(-1px -1px 1px rgba(255,255,255,0.3))
+          drop-shadow(5px 5px 5px rgba(0,0,0,0.5))
+          drop-shadow(15px 15px 15px rgba(0,0,0,0.5));
+}
+
+.card-list {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 0 1rem;
+  flex-wrap: wrap;
+  max-width: 1400px;
+  margin-inline: auto;
+}
+
+.card {
+  --rotateX: 0deg;
+  --rotateY: 0deg;
+
+  position: relative;
+  width: 300px;
+  height: 400px;
+  margin: 1rem;
+  background: #232323;
+  border-radius: 20px;
+  box-shadow: -1px -1px 1px rgba(255,255,255,0.3),
+              5px 5px 5px rgba(0,0,0,0.5),
+              15px 15px 15px rgba(0,0,0,0.5);
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rotateX)) rotateY(var(--rotateY));
+  transition: rotate 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: perspective(1000px) scale3d(1,1,1) rotateX(var(--rotateX)) rotateY(var(--rotateY));
+}
+
+.card::before,
+.card::after {
+  --position: 20px;
+  position: absolute;
+  font-weight: 900;
+  color: #fff;
+  font-style: italic;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.card:hover::before,
+.card:hover::after {
+  opacity: 0.04;
+}
+
+.card::before {
+  content: 'NIKE';
+  top: var(--position);
+  left: var(--position);
+  font-size: 6em;
+}
+
+.card::after {
+  content: 'SHOES';
+  bottom: var(--position);
+  right: var(--position);
+  font-size: 5em;
+}
+
+.card > * {
+  opacity: 0;
+}
+
+.card * {
+  transform-style: preserve-3d;
+  transition: 0.5s;
+}
+
+.card:hover * {
+  opacity: 1 !important;
+}
+
+.card .name {
+  z-index: 12;
+  position: absolute;
+  inset: 0 0 auto 0;
+  text-align: center;
+  color: #fff;
+  text-transform: capitalize;
+  transform: translate3d(0, 0, 100px);
+}
+
+.card:hover .name {
+  top: 40px;
+}
+
+.card .btn {
+  z-index: 12;
+  position: absolute;
+  inset: auto 0 0 0;
+  width: fit-content;
+  margin-inline: auto;
+  color: #fff;
+  background: #333;
+  padding: 10px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  transform: translate3d(0, 0, 100px);
+}
+
+.card:hover .btn {
+  bottom: 30px;
+}
+
+.card .product {
+  z-index: 10;
+  position: relative;
+  inset: 0;
+  height: 100%;
+  display: grid;
+  place-content: center;
+  opacity: 1;
+}
+
+.card .circle {
+  width: 200px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: #fff;
+  transform: translate3d(0, 0, 50px);
+}
+  
+.card .product img {
+  z-index: 12;
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  max-width: 300px;
+  transform: translate3d(0, 0, 50px) rotate(-10deg);
+}
+
+.card:hover .product img{
+  max-width: 320px;
+  transform: translate3d(0, 0, 100px) rotate(-20deg);
+}
+
+
+footer {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  color:white;
+}
+
+@media screen and (max-width: 800px) {
+  .card {
+    --rotateX: 0deg !important;
+    --rotateY: 0deg !important;
+  }
+}
