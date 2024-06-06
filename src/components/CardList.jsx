@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { getImageUrl } from "../utils/imageUrl";
 
 export function Card({ item, onMouseMove, onMouseOut }) {
   const cardRef = useRef(null);
@@ -13,7 +14,7 @@ export function Card({ item, onMouseMove, onMouseOut }) {
       <h2 className="name">Air Max {item.name}</h2>
       <div className="product">
         <div className="circle" style={{ background: `${item.color}` }}></div>
-        <img src={`./src/assets/${item.img}`} alt={`shoes ${item.name}`} />
+        <img src={getImageUrl(item.img)} alt={`shoes ${item.name}`} />
       </div>
       <a className="btn" href="" style={{ background: `${item.color}` }}>
         Buy now
