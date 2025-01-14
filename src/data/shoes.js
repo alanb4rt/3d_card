@@ -1,4 +1,4 @@
-export const data = [
+export const shoes = [
     {
         id: "1",
         name: "purple",
