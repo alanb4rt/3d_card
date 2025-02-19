@@ -1,5 +1,5 @@
 import CardList from "./components/CardList";
-import { shoes } from "./data/shoes";
+import Shoes from "./data/shoes.json";
 
 export default function App() {
   return (
@@ -10,7 +10,7 @@ export default function App() {
 
       <main>
         <section className="card-list">
-          <CardList data={shoes} />
+          <CardList data={Shoes} />
         </section>
       </main>
 
